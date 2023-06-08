@@ -20,7 +20,7 @@ spec:
         - "--ignore-db-dir=lost+ignore"
         image: vprofile/vprofiledb:v1
         volumeMounts:
-        - name: db_data
+        - name: dbdata
           mountPath: /var/lib/mysql
         ports:
         - containerPort: 3306
@@ -39,7 +39,7 @@ spec:
       nodeSelector:
         zone: us-east-a1
       volumes:
-      - name: db_data
+      - name: dbdata
         awsElasticBlockStore:
           volumeID: vol-047cbf0d867bf7413
           fsType: ext4

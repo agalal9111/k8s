@@ -17,7 +17,7 @@ spec:
       containers:
       - name: db-container
         args:
-        - "--ignore-db-dir=lost+ignore"
+        - "--ignore-db-dir=lost+found"
         image: vprofile/vprofiledb
         volumeMounts:
         - name: dbdata

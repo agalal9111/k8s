@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-deployment
+  labels:
+    app: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      name: backend
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: db-container
+        image: vprofile/vprofiledb:v1
+        volumeMounts:
+        - name: db_data
+          mountPath: /var/lib/mysql
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: db_pass
+              name: app-secret
+
+        - name: RABBITMQ_DEFAULT_PASS
+          valueFrom:
+            secretKeyRef:
+              key: rbmq_pass
+              name: app-secret
+      volumes:
+      - name: db_data
+        awsElasticBlockStore:
+          volumeID:

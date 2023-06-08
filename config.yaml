@@ -1,6 +1,6 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-- name: app_config
+  name: app_config
 data:
-  rbmq_user: Z3Vlc3QK
+  rbmq_user: "Z3Vlc3QK"

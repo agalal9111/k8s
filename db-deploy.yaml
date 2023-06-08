@@ -18,7 +18,7 @@ spec:
       - name: db-container
         args:
         - "--ignore-db-dir=lost+ignore"
-        image: vprofile/vprofiledb:v1
+        image: vprofile/vprofiledb
         volumeMounts:
         - name: dbdata
           mountPath: /var/lib/mysql

@@ -37,7 +37,7 @@ spec:
               key: rbmq_pass
               name: app-secret
       nodeSelector:
-        zone: us-east-a1
+        zone: us-east-1a
       volumes:
       - name: dbdata
         awsElasticBlockStore:

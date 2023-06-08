@@ -3,19 +3,21 @@ kind: Deployment
 metadata:
   name: db-deployment
   labels:
-    app: backend
+    app: vprodb
 spec:
   selector:
     matchLabels:
-      app: backend
+      app: vprodb
   template:
     metadata:
-      name: backend
+      name: vprodb
       labels:
-        app: backend
+        app: vprodb
     spec:
       containers:
       - name: db-container
+        args:
+        - "--ignore-db-dir=lost+ignore"
         image: vprofile/vprofiledb:v1
         volumeMounts:
         - name: db_data
@@ -34,7 +36,10 @@ spec:
             secretKeyRef:
               key: rbmq_pass
               name: app-secret
+      nodeSelector:
+        zone: us-east-a1
       volumes:
       - name: db_data
         awsElasticBlockStore:
-          volumeID:
+          volumeID: vol-047cbf0d867bf7413
+          fsType: ext4

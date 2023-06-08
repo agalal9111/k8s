@@ -4,5 +4,5 @@ kind: ConfigMap
 metadata:
   name: app-config
 data:
-  rbmq_user: "Z3Vlc3QK"
+  rbmq_user: guest
 

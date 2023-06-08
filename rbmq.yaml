@@ -22,7 +22,7 @@ spec:
           valueFrom:
             configMapKeyRef:
               key: rbmq_user
-              name: app_config
+              name: app-config
 
         - name: RABBITMQ_DEFAULT_PASS
           valueFrom:

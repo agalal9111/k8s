@@ -17,8 +17,7 @@ spec:
       containers:
       - name: db-container
         args:
-        - "--ignore-db-dir"
-        - "lost+found"
+        - "--ignore-db-dir=lost+found"
         image: agalal9111/vprodb:v1
         volumeMounts:
         - name: dbdata

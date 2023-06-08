@@ -31,12 +31,6 @@ spec:
             secretKeyRef:
               key: db_pass
               name: app-secret
-
-        - name: RABBITMQ_DEFAULT_PASS
-          valueFrom:
-            secretKeyRef:
-              key: rbmq_pass
-              name: app-secret
       nodeSelector:
         zone: us-east-1a
       volumes:
